@@ -104,12 +104,170 @@ body {
     padding: 24px;
 }
 
+//---FAQ PREGUNTAS---
+
+.faq {
+    @include m.contenedor;
+    padding: 40px 20px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .subtitulo {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #5a6472;
+    }
+}
+
+.faq-item {
+    background: #fff;
+    margin-bottom: 12px;
+    border-radius: v.$radio;
+    overflow: hidden;
+}
+
+.faq-btn {
+    width: 100%;
+    padding: 18px;
+    background: v.$color-oscuro;
+    color: #fff;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.faq-btn:hover {
+    background: v.$color-acento;
+}
+
+.faq-content {
+    display: none;
+    padding: 18px;
+    background: #fff;
+}
+
+.faq-content.mostrar {
+    display: block;
+}
+
+
+//---TESTIMONIOS ---
+.testimonios{
+    @include m.contenedor;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+
+    h2{
+        margin-bottom: 10px;
+    }
+
+    .subtitulo { 
+        color: #5a6472; 
+        max-width: 650px; 
+        margin: 0 auto 30px; 
+    }
+
+    .cards { 
+        display: flex;
+        justify-content: center; 
+    }
+
+    .card { 
+        width: 650px;
+        min-height: 280px;
+        background: #fff; 
+        border-radius: v.$radio; 
+        padding: 25px 45px; 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);  
+
+        img { 
+            width: 75px; 
+            height: 75px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin-bottom: 8px; 
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .estrellas { 
+            margin: 5px 0 10px; 
+        }
+
+        p:last-child { 
+            color: #5a6472; 
+            font-size: 0.95rem; 
+        } 
+    }
+}
+
+// --- Controles del carrusel ---
+.controles-carrusel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 740px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    z-index: 2;
+    
+    button {
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        background: v.$color-primario;
+        color: #fff;
+        font-size: 1.3rem;
+        cursor: pointer;
+
+        transition: background 0.3s ease, transform 0.3s ease;
+        
+        &:hover {
+            background: v.$color-acento;
+            transform: scale(1.08);
+        }
+    }
+}
+
+
+
 // --- Responsive con el mixin de media query ---
 @include m.movil {
+
+    .testimonios .cards {
+        width: 100%;
+        min-height: 300px;
+        padding: 25px 20px;
+    }
+
+    .controles-carrusel{
+        width: 100%;
+        padding: 05px;
+    }
+
 
     .site-header .nav__links {
         display: none;
     }
+
+    .site-header .nav__links.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+
 
     .site-header .nav__toggle {
         display: block;
